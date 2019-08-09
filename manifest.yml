@@ -1,11 +1,10 @@
 applications:
 - name: course-api
-  memory: 512M
-  instances: 1
-  path: target/course-api.jar
+  memory: 1024M
+  instances: 1
+  path: target/course-api-0.0.1-SNAPSHOT.jar
+  buildpack: sap_java_buildpack
+
   env:
-    # Use the non-blocking /dev/urandom instead of the default to generate random numbers
-    SPRING_PROFILES_DEFAULT: cf 
+    SPRING_PROFILES_DEFAULT: cf
     JAVA_OPTS: -Djava.security.egd=file:///dev/./urandom
-    SPRING_PROFILES_ACTIVE: cloud  
-    SAP_JWT_TRUST_ACL: '[ {"clientid" : "*", "identityzone" : "*"} ]'
